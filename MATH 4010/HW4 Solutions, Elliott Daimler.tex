@@ -1,0 +1,81 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 5, Section 8.2 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Claim: Suppose that $N$ is a subgroup of $G$ and that $N$ has the property that if $a$ and $b$ are any elements of $G$, then $ab$ belongs 
+to $N$ if and only if $ba$ belongs to $N$.  Then $N$ is a normal subgroup.
+
+
+
+
+
+\section*{2}
+
+Claim: The inner automorphisms of a group $G$ are a normal subgroup of $\mathrm{Aut}(G)$. 
+
+\begin{proof}
+  Since the inner automorphisms of $G$ form a subgroup, then the inverse of each automorphism $\varphi$ in $\mathrm{Inn}(G)$ 
+  is also in the subgroup.
+  \begin{alignat*}{1}
+    \varphi_g \circ \varphi_x \circ \varphi_g ^{-1} \circ \varphi_h^{-1} = gxg^{-1}hxh^{-1}gx^{-1}g^{-1}
+  \end{alignat*}
+\end{proof}
+
+\section*{3}
+
+Claim: If $K$ is a characteristic subgroup of $N$ and $N$ is a normal subgroup of $G$, then $K$ is a normal subgroup of 
+$G$. 
+
+
+\section*{4} 
+
+Claim: Suppose that $G$ is a group all of whose subroups are normal.  If $a$, $b$, are elements of $G$, then $ab = ba^k$ for 
+some integer $k$.
+
+
+
+
+\end{document}

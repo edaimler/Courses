@@ -1,0 +1,74 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Bonus Assignment on 8.4 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Claim: Let $K$ and $N$ be subgroups of a group $G$, with $N$ normal in $G$, and let $NK = \{ nk | n \in N, k \in K \}$.  
+Then $K/(N \cap K)$ is isomorphic to $NK/N$.  
+
+\begin{proof}
+    By Exercise 20 of section 8.2, $NK$ is a subgroup of $G$ that contains both $K$ and $N$.  
+    We will complete the remainder of the proof in three parts. 
+    \subsection*{a}
+    First, to show that $N$ is a normal subgroup of $NK$, let $g \in G$ be given.  Since 
+    $N$ is normal in $G$, we have $gng^{-1}$.  Now let $a \in NK$ be given.  Since $NK$ is a 
+    subgroup of $G$, we have $ana^{-1}$ where $g = a \in NK$, so $N$ is a subgroup of $NK$.
+
+    \subsection*{b}
+    Next, consider the map $f:K \rightarrow NK/N$ given by $f(k) = Nk$.  This can be rewritten as 
+    $Nk = nk$ for $n \in N$, $k \in K$.  The kernel of $f$ is all $k \in K$ such that 
+    $f(k) = N$, or $\{ k \in K | nk \in N \}$.  Since every $n$ is in $N$, this is 
+    $\{ k \in K | k \in N \}$ or $K \cap N$.  Every $k \in K$ is also in $NK$, so $f$ is 
+    surjective.
+
+    \subsection*{c}
+    Last, by the First Isomorphism Theorem, the map $f: K \rightarrow NK/N$ with kernel $N \cap K$ 
+    implies that the quotient group $K/(N \cap K)$ is isomorphic to $NK/N$.
+\end{proof}
+
+
+
+
+\end{document}

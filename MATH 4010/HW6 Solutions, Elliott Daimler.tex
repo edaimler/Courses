@@ -1,0 +1,104 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 5, Section 8.2 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Claim: Let $G$ be an abelian group.  Then for $K = \{a \in G | |a| <= 2 \}$, 
+$H = \{ x^2 | x \in G \}$, the quotient group $G/K$ is isomorphic to $H$.
+
+\begin{proof}
+    We will complete this proof in three parts.
+
+    \subsection*{a}
+
+    Let $a, b \in K$ be given.  Since $G$ is abelian, we have $(ab)^2 = abab = a^2 b^2 = e(e)$.  So 
+    $|ab| \leq 2$ and $ab \in K$, and $K$ is closed under the group operation. For any $a \in K$, its 
+    inverse $a^{-1} = a$.  So $a^{-1} \in K$ and $K$ is closed under inverses, and $K$ is a subgroup of $G$. \\ 
+
+    \subsection*{b}
+    Let $c, d \in G$ be given.  The squares $c^2$ and $d^2$ are in $H$, and $c^2 d^2 = cdcd = (cd)^2$ where 
+    $cd = g$ for some $g \in G$.  So $H$ is closed under the group operation.  For some $x \in G$, 
+    $x^2 \in H$ and for every $x^{-1} \in G$, $(x^{-1})^2 = x^{-2} \in H$.  Taking the product 
+    of $x^2$ and $x^{-2}$, we have $x^2 x^{-2} = xx^{-1}xx^{-1} = e^2$, so $H$ is closed under 
+    inverses.
+
+    \subsection*{c}
+    Define a map $f:G \rightarrow H$ given by $f(a) = a^2$.  Since $H$ is the set of all 
+    $a^2$ for $a \in G$, the map $f$ is surjective, and for any $a, b \in G$, $f(ab) = (ab)^2 = abab = a^2 b^2 = f(a)f(b)$, 
+    so $f$ is a homomorphism.  Then $K$ is the kernel of 
+    $f$ and by the First Isomorphism Theorem, $G/K$ is isomorphic to $H$.
+\end{proof}
+
+\section*{2}
+
+Claim: Let $M$ be a normal subgroup of a group $G$ and let $N$ be a normal subgroup of a group 
+$H$.  Then $M \times N$ is a normal subgroup of $G \times H$ and $ (G \times H)/(M \times N)$ 
+is isomorphic to $G/M \times H/N$.  
+
+\begin{proof}
+    Define a map $f: G \times H \rightarrow G/M \times H/N$ given by $f(g, h) = (Mg, Nh)$ for 
+    $g \in G, h \in H$. The coset $Mg$ is a subgroup of $G$, and $Nh$ is a subgroup of $H$, so $f$ is 
+    surjective.  For any $a, b \in G$, $c, d \in H$, $f(ab, cd) = (Mab, Ncd) = (MaMb, NcNd) = f(a, c)f(b, d)$ 
+    by the normality of $M$ and $N$, so $f$ is a homomorphism.  Then the 
+    kernel of $f$ is $M \times N$ so $M \times N$ is a normal subgroup of $G \times H$. By the First Isomorphism Theorem, $(G \times H)/(M \times N)$ 
+    is isomorphic to $G \times H/M \times N$.
+\end{proof}
+
+\section*{3}
+
+Claim: Let $N$ be a normal subgroup of a group $G$ and let $f : G \rightarrow H$ be a 
+homomorphism of groups such that the restriction of $f$ to $N$ is an isomorphism $N \cong H$.  
+Then $G \cong N \times K$, where $K$ is the kernel of $f$.
+
+\begin{proof}
+    Since $f : N \rightarrow H$ is an isomorphism, it is surjective on $H$.  $N$ is a subgroup 
+    of $G$, so $f : G \rightarrow H$ is also a surjective homomorphism.  Then by the First 
+    Isomorphism Theorem, $G/K \cong H \cong N$.  The product $(G/K \times K)$ is clearly isomorphic to 
+    $G$ since it is $(Kg, k)$ for all $Kg \in G/K$ and $k \in K$.  Then $G \cong (G/K \times K) \cong N \times K$.
+
+\end{proof}
+
+
+\end{document}

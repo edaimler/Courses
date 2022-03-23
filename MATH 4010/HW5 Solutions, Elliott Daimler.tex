@@ -1,0 +1,109 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 5, Section 8.2 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Claim: Suppose that $N$ is a subgroup of $G$ and that $N$ has the property that if $a$ and $b$ are any elements of $G$, then $ab$ belongs 
+to $N$ if and only if $ba$ belongs to $N$.  Then $N$ is a normal subgroup.
+
+\begin{proof}
+    Let $c \in N$, $b \in G$ be given.  By the closure of $G$, there is some $a \in G$ such that $cb^{-1} = a$.  
+    Then $c = cb^{-1} b = ab$, so $ab \in N$, which implies $ba \in N$.  Since $a = cb^{-1}$, it follows that 
+    $ba = bcb^{-1} \in N$.
+\end{proof}
+
+
+
+\section*{2}
+
+Claim: The inner automorphisms of a group $G$ are a normal subgroup of $\mathrm{Aut}(G)$. 
+
+\begin{proof}
+  Let $\varphi_x$ denote the inner automorphism $\varphi_x (g) = xgx^{-1}$, and let $f$ denote any automorphism 
+  of $G$.  Then $\varphi_{f(x)}$ is also in the automorphism group.  Now let some 
+  $g \in G$ be given; applying $\varphi_{f(x)}$ to $g$, we have 
+  \begin{alignat*}{1}
+    \varphi_{f(x)}(g) &= f(x)gf^{-1}(x), \\  
+  \end{alignat*}
+  and likewise, 
+  \begin{alignat*}{1}
+    f \circ \varphi_x \circ f^{-1}(g) &= f(x f^{-1}(g) x^{-1}). \\ 
+  \end{alignat*}
+  Since $f$ is an isomorphism, 
+  \begin{alignat*}{1}
+    f(x f^{-1}(g) x^{-1}) &= f(x) f\circ f^{-1}(g) f(x^{-1}) \\ 
+    &= f(x) g f(x^{-1}) \\ 
+    &= f(x) g f^{-1}(x) \\ 
+  \end{alignat*}
+  which is equal to $\varphi_{f(x)}(g)$, so the inner automorphisms of $G$ are a normal subgroup of 
+  $\mathrm{Aut}(G)$.
+\end{proof}
+\newpage
+\section*{3}
+
+Claim: If $K$ is a characteristic subgroup of $N$ and $N$ is a normal subgroup of $G$, then $K$ is a normal subgroup of 
+$G$. 
+
+\begin{proof}
+    Let $g \in G$ and $n \in N$ be given, and define the inner automorphism $f_g(n) := gng^{-1}$.  $N$ is a normal subgroup of $G$, 
+    so $f_g(n) = gng^{-1} \in N$.  Moreover, $K$ is a subgroup of $N$, so for any $k \in K$, $f_g(k) = gkg^{-1} \in N$.  Since $K$ is 
+    a characteristic subgroup of $N$ and $f_g$ is in the automorphism group $\mathrm{Aut}(N)$, it follows that $f_g(k) = gkg^{-1} \in K$, so $K$ is a normal 
+    subgroup of $G$.
+\end{proof}
+
+\section*{4} 
+
+Claim: Suppose that $G$ is a group all of whose subroups are normal.  If $a$, $b$, are elements of $G$, then $ab = ba^k$ for 
+some integer $k$.
+
+\begin{proof}
+    Let $a_1 \in G$ be given.  Then $a_1$ is a generator for the cyclic group $\langle a_1 \rangle  \leq G$.  Since all subgroups 
+    of $G$ are normal, $\langle a_1 \rangle$ is normal, so for any $b \in G$, $b \langle a_1 \rangle = \langle a_1 \rangle b$ where $ba_1 = a_2b$ for some 
+    $a_1, a_2 \in \langle a_1 \rangle$.  The group $\langle a_1 \rangle$ is also cyclic, so for each $a_1, a_2 \in \langle a_1 \rangle$, $a_2 = a_1 ^k$ for some 
+    integer $k$, where $k$ may be positive or negative.  It follows that $a_2 b = ba_1 = a_1^k b$.
+\end{proof}
+
+
+\end{document}
