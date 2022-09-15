@@ -1,0 +1,206 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 1 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4200 \\
+	Dr. Gay \\ 
+	MWF 9:10am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+
+For these solutions, I collaborated with Cole Wittbrodt and Dru Horne.\\ 
+\\
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Exercise 1.3}
+
+Claim: For a function $f:X \rightarrow Y$ and sets $A, B \subset Y$, the following statements 
+are true.\\
+\\
+a) $f^{-1}(A \cup B) = f^{-1}(A)\cup f^{-1}(B)$, and\\ 
+\\ 
+b)$f^{-1}(A \cap B) = f^{-1}(A)\cap f^{-1}(B)$.
+
+\begin{proof}
+    For part a), for any $y \in A \cup B$, $y \in A$ 
+    or $y \in B$, so $f^{-1}(y) \subset f^{-1}(A) \cup f^{-1}(B)$, and 
+    $f^{-1}(A \cup B) \subset f^{-1}(A) \cup f^{-1}(B)$. \\
+    \\ 
+    Similarly, for any $x \in f^{-1}(A) \cup f^{-1}(B)$, $f(x) \in A$ 
+    or $f(x) \in B$ and $f(x) \in A \cup B$.  It follows that $x \in f^{-1}(A \cup B)$, 
+    so $f^{-1}(A) \cup f^{-1}(B) \subset f^{-1}(A \cup B)$. \\ 
+    \\ 
+    For part b), for any $y \in A \cap B$, $f^{-1}(y) \subset f^{-1}(A)$ 
+    and $f^{-1}(y) \subset f^{-1}(B)$, so $f^{-1}(A \cap B) \subset f^{-1}(A) \cap f^{-1}(B)$.\\ 
+    \\ 
+    For any $x \in f^{-1}(A) \cap f^{-1}(B)$, $x$ is in $f^{-1}(A)$ and $x$ is in $f^{-1}(B)$, 
+    so $f(x) \in A \cap B$ and $f^{-1}(A) \cap f^{-1}(B) \subset f^{-1}(A \cap B)$.
+
+
+\end{proof}
+
+\section*{Exercise 1.4}
+
+Claim: If $f: X \rightarrow Y$ is injective and $y \in Y$, then $f^{-1}(y)$ contains at most 
+one point.
+
+\begin{proof} 
+    Let $a, b \in f^{-1}(y)$ be given.  Then $f(a) = f(b) = y$, and by the definition 
+    of injectivity, $a = b$.  
+\end{proof}
+
+\section*{Exercise 1.5}
+
+Claim: If $f: X \rightarrow Y$ is surjective and $y \in Y$, then $f^{-1}(y)$ contains 
+at least one point.
+
+\begin{proof} 
+    By the definition of surjectivity, there is some $x \in X$ such that $f(x) = y$, 
+    so $x \in f^{-1}(y)$.
+\end{proof}
+
+\section*{Theorem 1.6}
+
+Claim: Let $2 \mathbb{N}$ denote the even positive integers.  Then $2 \mathbb{N}$ 
+has the same cardinality as $\mathbb{N}$, the natural numbers.
+
+\begin{proof}
+    Define $f:\mathbb{N} \rightarrow 2 \mathbb{N}$ as $f(x) = 2x$ for $x \in \mathbb{N}$.  
+    Then for every $y \in 2 \mathbb{N}$, $y$ is even, so $y/2 = x$ for some $x \in \mathbb{N}$ 
+    and $f(x) = y$, so $f$ is surjective. \\ 
+    \\ 
+    Let $a, b \in f^{-1}(y)$ be given.  Then $f(a) = f(b) = y = 2a = 2b$, so $a = b = y/2$ 
+    and $f$ is injective.
+\end{proof}
+
+\section*{Theorem 1.7}
+
+Claim: The set $\mathbb{Z}$ has the same cardinality as $\mathbb{N}$.
+
+\begin{proof}
+    Define $f:\mathbb{Z} \rightarrow \mathbb{N}$ as 
+
+    \begin{alignat*}{1}
+    f(x) &= \left\{ 
+        \begin{array}{lr}
+            2x, & \text{for } x \geq 0 \\ 
+            -2x-1, & \text{for } x < 0 
+        \end{array}
+    \right\}. \\ 
+    \end{alignat*}
+
+Then for every $x \geq 0$, $f(x)$ is even and for every $x < 0$, $f(x)$ is odd.  
+Let $y \in \mathbb{N}$ and let $a, b \in f^{-1}(y)$ be given.  If $y$ is even, 
+$f(a) = 2a = y$ and $f(b) = 2b = y$, so $a = b$.  If $y$ is odd, $f(a) = -2a -1 = y$ 
+and $f(b) = -2b - 1 = y$, so $-2a = -2b$ and $a = b$.  So $f$ is injective. \\ 
+\\
+For every $y \in \mathbb{N}$, if $y$ is even, there is some $x \in \mathbb{Z}$ where  
+$x \geq 0$ and $x = y/2$, so $x \in f^{-1}(y)$.  If $y$ is odd, there is some 
+$x \in \mathbb{Z}$ where $x < 0$ and $x = \frac{y + 1}{-2}$, so $f$ is surjective.
+\end{proof}
+
+\section*{Theorem 1.8}
+
+Claim: Every subset of $\mathbb{N}$ is either finite or has the same cardinality as 
+$\mathbb{N}$. 
+
+\begin{proof}
+    For some $A \subset \mathbb{N}$, if $A = \{0\}$ then A is finite by definition.  If 
+    $A \neq \{0\}$, let the least element $a \in A$ correspond with $1$, the 2nd least 
+    element in $A$ correspond with $2$, repeating in this manner for the nth least element 
+    corresponding with $n \in \mathbb{N}$.  This is a bijection from $A$ to some $B \subset \mathbb{N}$.\\ 
+    \\ 
+    For any $m \in \mathbb{N}$, if $m$ is not in $B$, then $B$ is finite so $A$ is finite.  
+    If $m$ is in $B$, then $m$ corresponds with the mth least element of $A$, and the 
+    bijection holds.
+\end{proof}
+
+
+\newpage 
+
+\section*{Theorem 1.9}
+
+Claim: Every infinite set has a countably infinite subset 
+
+\begin{proof}
+    Let $A$ be infinite and let $a \in A$ be given.  Call this given element 
+    $a_1$, and repeat for unique elements $a_i \in A$.  Then we have a bijection 
+    between the set $B = \{ a_1, a_2, \cdots, a_n \}$ and $A$.  Assume there is some 
+    $n \in \mathbb{N}$ for which $A - B = \{ \emptyset \}$.  
+    Then $A$ is finite, and we have a contradiction.  So every $n \in \mathbb{N}$ 
+    has one corresponding element $a_n \in B$, and there is a bijection from $\mathbb{N}$ to $B$ .  
+\end{proof}
+
+\section*{Theorem 1.10}
+
+Claim: A set is infinite if and only if there is an injection from the set into a 
+proper subset of itself. 
+
+\begin{proof}
+    Let $B$ be a proper subset of a set $A$, and let $f:A \rightarrow B$ be injective.  
+    Assume $B$ is finite; then for each 
+    element $y_i \in B$, we have $\{ y_1 = f(x_1), y_2 = f(x_2), \cdots, y_n = f(x_n) \} = B$ 
+    for some $C = \{ x_1, x_2, \cdots, x_n \} \subset A$.  But there is some $x_m \in (A-B)$ 
+    where $f(x_m) \in B$ and $x_m \notin C$, a condradiction.  So $B$ is infinite, and 
+    therefore $A$ is infinite.\\ 
+    \\ 
+    Conversely, assume $A$ is infinite.  By Theorem 1.9, $A$ has a countably infinite subset, 
+    which by definition means there is a subset $B$ of $A$ for which a bijection $f$ exists 
+    between $B$ and $\mathbb{N}$.  By definition, $f$ is injective.
+\end{proof}
+
+\section*{Theorem 1.11} 
+
+Claim: The union of two countable sets is countable. 
+
+\begin{proof}
+    Let $A, B$ be countable.  Then for some subsets $C, D \subseteq \mathbb{N}$, 
+    there exist bijections $f: A \rightarrow C$ 
+    and $g: B \rightarrow D$, so $f(A) \cup g(B) = C \cup D \subseteq \mathbb{N}$.
+\end{proof}
+
+\section*{Theorem 1.12} 
+
+Claim: The union of countably many countable sets is countable.
+
+\begin{proof}
+    Let $A_1, A_2, \cdot, A_n$ be countably many countable sets.  Then for each $A_i$ there 
+    is a bijection $f_i : A_i \rightarrow B_i$ for some $B_i \subseteq \mathbb{N}$, so there 
+    are countably many subsets $B_i$, and their union is a subset of $\mathbb{N}$.  Thus,  
+    $f^{-1}(A_1 \cup A_2 \cup \cdots \cup A_n)$ is countable.
+\end{proof}
+\end{document}

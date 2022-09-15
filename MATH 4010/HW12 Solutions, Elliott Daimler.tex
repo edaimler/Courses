@@ -1,0 +1,98 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 12, Fundamental Theorem Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+
+Claim: Let $K/F$ be Galois, let $G = \mathrm{Gal}(K/F)$, let $E$ be an intermediate 
+field, and let $H = \mathrm{Gal}(K/E)$ so that $E = \mathrm{Inv}(H)$.  
+Then $E/F$ is Galois if and only if $\mathrm{Inv}(E)$ is a normal subgroup.
+
+\begin{proof} 
+    We'll prove the claim in three sections.
+    \section*{1}
+    
+    Let $H$ be any subgroup of $G$, and define $g(E) = \{ ga | g \in G, a \in E \}$ and 
+    $gHg^{-1} = \{ ghg^{-1} | g \in G, h \in H \}$.  Then 
+    for $b = ga$, $ghg^{-1}b = ghg^{-1}(ga) = gha$.  Since $a$ is fixed by 
+    $h$, $gha = ga = b$, so $ghg^{-1}b = b$ for any $b \in g(E)$. \\ 
+    \\
+    Conversely, let some $b \in \mathrm{Inv}(gHg^{-1})$ be given.
+    There is some $a \in K$ such that $g^{-1}b = a$, so $b = ga$ and 
+    $ghg^{-1}b = ghg^{-1}ga = gha = b$.  But $ga = b$, so $ga = gha$ and 
+    $a$ must therefore be fixed by $h$.  So $a$ is in $E$ and $b \in g(E)$.  
+    It follows that $\mathrm{Inv}(gHg^{-1}) = g(E)$.
+
+    \section*{2} 
+
+    Assume that $g(E) = E$ for all $g \in G$.  Let $f_g(j) = gj$ 
+    for $j \in \mathrm{Gal}(E/F)$, and define a mapping 
+    $\varphi : \mathrm{Gal}(K/F) \rightarrow \mathrm{Gal}(E/F)$ by 
+    $\varphi(g) = f_g(j)$  For $g \in \mathrm{Gal}(K/E)$, $g$ fixes 
+    elements of $E$ so $f_g(j) = j = f_{id}(j)$ where $id$ is the identity 
+    permutation.  This implies that $\mathrm{Gal}(K/E)$ is the kernel of 
+    $\varphi$ and $j \in \mathrm{Gal}(E/F)$ are mapped to non-identity 
+    permutations of $E$. \\ 
+    \\ 
+    Now let $a, b \in G$ be given.  Then $\varphi(ab) = f_{ab}(j) = abj$. 
+    Similarly, $\varphi(a)\varphi(b) = f_a \circ f_b(j) = f_a(bj) = abj$, so 
+    $\varphi$ is a homomorphism of the Galois group.  
+
+    \section*{3} 
+
+    Suppose that $E$ is Galois over $F$; then $E$ is the splitting field of 
+    some $f(x) \in F[x]$ and all roots of $f(x)$ are contained in $E$.  
+    For any $g \in G$, $g$ permutes roots of $f(x)$ by Theorem 12.2 of 
+    Hungerford.  Since all roots of $f(x)$ are in $E$, it follows that 
+    for any $e \in E$, $ge \in E$ and thus $g(E) = E$.  \\ 
+    \\ 
+    We have shown that 
+    $\mathrm{Inv}(E)$ being normal in $G$ implies that $E$ is Galois 
+    over $F$, and conversely, if $E$ is Galois over $F$, then $g(E) 
+    = E = gHg^{-1}$ and $\mathrm{Inv}(E)$ is normal in $G$.
+
+
+
+\end{proof}
+
+\end{document}

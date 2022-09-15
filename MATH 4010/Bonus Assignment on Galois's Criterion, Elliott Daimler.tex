@@ -1,0 +1,100 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Bonus Assignment, Galois's Criterion Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+
+\section*{1}
+
+Let $f(x) = x^5 - 5x^3 + 5x + 2$ and $\alpha = \omega^9 + \omega$ where $\omega = e^{2 \pi i/10}$. 
+The polynomial can be factored into the form $f(x) = (x+2)(x^2 - x - 1)^2$, 
+has a root $-2$, and has two repeating (irrational) real roots for $(x^2 - x - 1)$, 
+so all 5 roots are real.  
+The trigonometric form of $\alpha$ is 
+\begin{alignat*}{1}
+  \alpha &= e^{18 \pi i/10} + e^{2 \pi i/10} \\
+  &= \mathrm{cos}\bigg( \frac{18 \pi}{10} \bigg) + i \mathrm{sin}\bigg( \frac{18 \pi}{10} \bigg) + 
+  \mathrm{cos}\bigg( \frac{2 \pi}{10} \bigg) + i \mathrm{sin}\bigg( \frac{2 \pi}{10} \bigg).\\ 
+\end{alignat*}
+
+Using the sum-to-product identities of sine and cosine, this becomes 
+
+\begin{alignat*}{1}
+  \mathrm{cos}\bigg( \frac{18 \pi}{10} \bigg) + i \mathrm{sin}\bigg( \frac{18 \pi}{10} \bigg) + 
+  \mathrm{cos}\bigg( \frac{2 \pi}{10} \bigg) + i \mathrm{sin}\bigg( \frac{2 \pi}{10} \bigg) 
+  &= 2 \mathrm{cos}\bigg( \frac{20 \pi}{20} \bigg)\mathrm{cos}\bigg( \frac{16 \pi}{20} \bigg)
+  + 2i \mathrm{sin}\bigg( \frac{20 \pi}{20} \bigg)\mathrm{sin}\bigg( \frac{16 \pi}{20} \bigg) \\
+  &= -2 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) + 0 \\ 
+  &= -2 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg). \\ 
+\end{alignat*}
+
+The values of $\alpha ^3$ and $\alpha^5$ are then 
+
+\begin{alignat*}{1}
+  \alpha^3 &= \bigg[ -2 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) \bigg]^3 \\ 
+  &= -4 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) - 4\mathrm{cos} \bigg( \frac{8 \pi}{5} \bigg) \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) \\ 
+  &= -4 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) - 2 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) - 2 \mathrm{cos} \bigg( \frac{12 \pi}{5} \bigg), \\ 
+  \\ 
+  \alpha ^5 &= \bigg[ -2 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) \bigg]^5 \\ 
+  &= -12 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) -8\mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) -8\mathrm{cos} \bigg( \frac{12 \pi}{5} \bigg)
+  - 2 \mathrm{cos} \bigg( \frac{12 \pi}{5} \bigg) - 2 \\ 
+  &= -20 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) - 10 \mathrm{cos} \bigg( \frac{12 \pi}{5} \bigg) - 2,
+\end{alignat*}
+
+and $f(\alpha)$ becomes 
+
+\begin{alignat*}{1}
+  f(\alpha) &= -20 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) - 10 \mathrm{cos} \bigg( \frac{12 \pi}{5} \bigg) - 2 
+  -5 \bigg[ -4 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) - 2 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) - 2 \mathrm{cos} \bigg( \frac{12 \pi}{5} \bigg) \bigg] 
+  + 5\bigg[ -2 \mathrm{cos} \bigg( \frac{4 \pi}{5} \bigg) \bigg] \\ 
+  &= -20 \mathrm{cos}\bigg( \frac{4 \pi}{5} \bigg) -10 \mathrm{cos}\bigg( \frac{12 \pi}{5} \bigg) 
+  - 2 + 20 \mathrm{cos}\bigg( \frac{4 \pi}{5} \bigg) + 10 \mathrm{cos}\bigg( \frac{4 \pi}{5} \bigg) 
+  + 10 \mathrm{cos}\bigg( \frac{12 \pi}{5} \bigg) - 10 \mathrm{cos}\bigg( \frac{4 \pi}{5} \bigg) + 2 \\ 
+  &= 0.  
+\end{alignat*}
+
+So $\alpha$ is a root of $f(x)$.  Since $\alpha$ is real and 
+all 5 roots are real, $\mathbb{Q}[\alpha]$ 
+splits $f(x)$.
+
+\end{document}

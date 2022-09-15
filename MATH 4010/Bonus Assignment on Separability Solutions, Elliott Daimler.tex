@@ -1,0 +1,66 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Bonus Assignment on Separability Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+\subsection*{a}
+
+Using the Freshman's Dream property of characteristic $p$ in $\mathbb{Z}_p$, we have 
+$f(x) = (a_{n}x^{n} + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0)^p$, so 
+$g(x) = a_{n}x^{n} + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0$ and $f(x) = (g(x))^p$.
+
+\subsection*{b}
+
+Since $F$ is finite, it has characteristic $p$.  
+Define a map $\phi(x) = x^p$; since $\mathbb{Z}_p$ is 
+characteristic $p$, this map is injective.  Further, since $F$ is finite and 
+$\phi$ maps from the set to itself injectively, it is also surjective.  So 
+$\phi$ is bijective and thus for $x^ip$ in $F$, we have $\phi^{-1}(x^ip) = x^i$.
+We can then map the polynomial $f(x)$ by $\phi(a_ix^{ip}) = a_ix^i$.
+Defining $g(x) = \phi(a_ix^{ip})$ for $0 \geq i \geq n$ and again applying the 
+property in part a), we have $f(x) = (g(x))^p$.
+
+
+\end{document}
