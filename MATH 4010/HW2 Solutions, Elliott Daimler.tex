@@ -1,0 +1,90 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 2, Section 7.3 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Claim: If $a$ is the only element of a group $G$ whose order is 2, then $a$ is in the center $G$.
+
+\begin{proof}
+    Let $b \in G$ be given.  By the closure property, there is some $c \in G$ such that 
+    $c = b^{-1}ab$.  Then for $c^2$ we have
+    \begin{alignat*}{1}
+        c^2 &= (b^{-1}ab)^2 \\ 
+        &= b^{-1}abb^{-1}ab \\ 
+        &= b^{-1}aeab \\ 
+        &= b^{-1}aab \\ 
+        &= b^{-1}eb \\ 
+        &= b^{-1}b \\ 
+        &= e. \\
+    \end{alignat*} 
+    The order of $c$ is 2, and only $a \in G$ has order 2, so $c = a$ and $a = b^{-1}ab$.  
+    Applying the group operation with $b$ on the left of both terms of this equation gives 
+    \begin{alignat*}{1}
+        ba &= bb^{-1}ab \\ 
+        &= eab \\ 
+        &= ab, \\ 
+    \end{alignat*}
+    so the equation $c = b^{-1}ab$ implies $ba = ab$, and $a$ is in the center of $G$.
+\end{proof}
+
+\section*{2}
+
+Claim: Let $p$ be a prime integer.  Then for any integer $a$, $a^p \equiv a \mod{p}$.
+
+\begin{proof} 
+    First we will show that for any $b$ in $\mathbb{Z}^*_p$, $b^{p-1} = 1$.  Since $\mathbb{Z}^*_p$ 
+    is a finite multiplicative group, by Theorem 7.16 $\mathbb{Z}^*_p$ is cyclic.  So there is some $c \in \mathbb{Z}^*_p$ 
+    that generates $\mathbb{Z}^*_p$, or $<c> = \mathbb{Z}^*_p$.  Since $p$ is prime, every nonzero element of $\mathbb{Z}_p$ 
+    is relatively prime to $p$, so $\mathbb{Z}^*_p$ has $p-1$ elements and $|c| = p-1$ is the highest order 
+    of an element in $\mathbb{Z}^*_p$.
+
+    Being a cyclic group, $\mathbb{Z}^*_p$ is abelian, so by Corollary 7.10, $|b|$ divides $p-1$.  If follows that 
+    $b^{p-1} = 1$.
+
+    Now let $b$ be the congruence class of $a$ in $\mathbb{Z}^*_p$.  Then $a^{p-1} \equiv 1 \mod{p}$ and 
+    $aa^{p-1} = a^p \equiv a \mod{p}$.
+\end{proof}
+
+\end{document}

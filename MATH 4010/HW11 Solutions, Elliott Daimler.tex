@@ -1,0 +1,136 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 11, Section 12.1 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Claim: If $K$ is an extension field of $\mathbb{Q}$ and $\sigma$ is an automorphism of $K$, then 
+$\sigma$ is a $\mathbb{Q}$-automorphism.
+
+\begin{proof}
+    $K$ is characteristic $0$, so $1 \cdot n = \underbrace{1 + 1 + \cdots + 1}_\text{n}$ and 
+    $\sigma(n) = \underbrace{\sigma(1) + \sigma(1) + \cdots + \sigma(1)}_\text{n} = n$.  
+    Elements of the field $\mathbb{Q}$ have the form $n/m = n(m^{-1})$ where $n, m \in \mathbb{Z}$ and  
+    $m^{-1}$ is the multiplicative inverse of $m$.  \\ 
+
+    Now let $a \in \mathbb{Q}$ be given.  Then there are some $n, m \in \mathbb{Z}$ where 
+    $a = n(m^{-1})$ and 
+    \begin{alignat*}{1}
+      \sigma(a) &= \sigma[n(m^{-1})] \\ 
+      &= \sigma(n)\sigma(m^{-1}) \\ 
+      &= \sigma(n)\sigma(m)^{-1}. \\ 
+    \end{alignat*}
+
+    Making further use of the properties of automorphism, we have 
+
+    \begin{alignat*}{1}
+      \sigma(n)\sigma(m)^{-1} &= \underbrace{\sigma(1) + \sigma(1) + \cdots + \sigma(1)}_\text{n} \underbrace{(\sigma(1) + \sigma(1) + \cdots + \sigma(1))^{-1}}_\text{m} \\ 
+      &= n(m^{-1}).
+    \end{alignat*}
+
+    So $\sigma$ maps the rational $a$ to itself, and is a $\mathbb{Q}$-automorphism.
+
+\end{proof}
+
+
+\section*{2} 
+
+\subsection*{a}
+
+For $\omega = (-1+ \sqrt{3} i)/2$, we have 
+\begin{alignat*}{1}
+    \omega^2 &= (-1 + \sqrt{3}i)(-1+ \sqrt{3}i)/4 \\ 
+    &= (1 - 2 \sqrt{3} i - 3)/4 \\ 
+    &= (-2 - 2 \sqrt{3}i)/4 \\ 
+    &= (-1 - \sqrt{3}i)/2, \\ 
+\end{alignat*}
+
+so $\omega^2$ is the complex conjugate of $\omega$.  Using a similar computation 
+to the above, we have $(\omega^2)^2 = \omega$.
+The minimum polynomial of $\omega$ 
+over $\mathbb{Q}$ is $x^2 + x + 1$: \\ 
+
+\begin{alignat*}{1}
+    \omega^2 + \omega + 1 &= (-1 - \sqrt{3}i)/2 + (-1 + \sqrt{3}i)/2 + 1 \\ 
+    &= \frac{-1}{2} - \frac{\sqrt{3}i}{2} + \frac{-1}{2} + \frac{\sqrt{3}i}{2} + 1 \\ 
+    &= -1 + 1 \\ 
+    &= 0. \\ 
+\end{alignat*}
+
+Since $(\omega^2)^2 = \omega$, if we use $\omega^2$ in the above polynomial, 
+the two complex conjugates simply switch positions and we get the same result:
+
+\begin{alignat*}{1}
+  (\omega ^2)^2 + (\omega ^2) + 1 &= (-1 + \sqrt{3}i)/2 + (-1 - \sqrt{3}i)/2 + 1 \\ 
+  &= \frac{-1}{2} + \frac{\sqrt{3}i}{2} + \frac{-1}{2} - \frac{\sqrt{3}i}{2} + 1 \\ 
+  &= 0. \\ 
+\end{alignat*}
+
+So $\omega$ and $\omega^2$ are the roots of this polynomial.
+
+\newpage
+
+\subsection*{b}
+
+The minimal polynomial in part \textbf{a} has degree 2, so by the 
+Fundamental Theorem of Algebra, there are two roots.  We have already identified 
+these roots as $\omega = (-1+ \sqrt{3} i)/2$ and $\omega^2 = (-1 - \sqrt{3} i)/2$, 
+so the Galois group $\mathrm{Gal}_{\mathbb{Q}}\mathbb{Q}(\omega)$ has one 
+automorphism, say $\sigma$, that permutes these two roots,
+ and one identity automorphism, say $\tau$: 
+
+\begin{alignat*}{1}
+  \sigma(\omega) = \omega^2 \\ 
+  \sigma(\omega^2) = \omega \\ 
+  \tau(\omega) = \omega \\ 
+  \tau(\omega^2) = \omega^2. \\
+\end{alignat*}
+
+The above mappings obey the properties of automorphism; for example, 
+with $\sigma(\omega^2)$ we have  
+$\sigma(\omega^2) = \sigma(\omega)^2 = \sigma(\omega)\sigma(\omega) = \omega^2 \omega^2$, 
+and as shown in part \textbf{a}, $(\omega^2)^2 = \omega$.  So $\mathrm{Gal}_{\mathbb{Q}}\mathbb{Q}(\omega)$ 
+has the two elements described above.
+
+\end{document}

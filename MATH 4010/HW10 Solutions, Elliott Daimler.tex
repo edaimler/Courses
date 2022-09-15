@@ -1,0 +1,95 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 10, Chapter 11 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+The minimum polynomial of $\sqrt{2}$ over $\mathbb{Q}$ is $x^2 - 2$; since this polynomial 
+is degree $2$,  $[\mathbb{Q}(\sqrt{2}):\mathbb{Q}] = 2$.  
+Similarly, the minimum polynomial of 
+$\sqrt{5}$ over $\mathbb{Q}$ is $x^2 - 5$.  The roots here are not in $\mathbb{Q}(\sqrt{2})$, 
+so this polynomial is irreducible over $\mathbb{Q}(\sqrt{2})$ and 
+$[\mathbb{Q}(\sqrt{5}):\mathbb{Q}] = 2$.  The minimum polynomial of $\sqrt{10}$ 
+over $\mathbb{Q}$ is $x^2 - 10$; this polynomial has roots in $\mathbb{Q}(\sqrt{2})(\sqrt{5})$, 
+namely $(\pm \sqrt{2} \sqrt{5})$.  The result is  
+$[\mathbb{Q}(\sqrt{2}, \sqrt{5}, \sqrt{10}):\mathbb{Q}] = 4$. 
+
+
+\section*{2} 
+The polynomial $x^4 - 4x^2 - 5$ can be factored into $(x^2 - 5)(x^2 + 1)$; 
+each of these polynomials can be further factored into $x^2 - 5 = (x + \sqrt{5})(x - \sqrt{5})$ 
+and $x^2 + 1 = (x + i)(x - i)$.  Since the polynomial is degree $4$ and 
+we've factored into four distinct polynomials of degree one, we have all of the roots: 
+$\pm i$, $\pm \sqrt{5}$.  Since negative coefficients are in the field extensions
+$\mathbb{Q}(\sqrt{5})$ and $\mathbb{Q}(i)$, the splitting field is $\mathbb{Q}(\sqrt{5}, i)$.
+
+\section*{3}
+\subsection*{a}
+Claim: If $f(x) = cx^n \in F[x]$ and $g(x) = b_0 + b_1x^1 + \cdots + b_k x^k \in F[x]$, 
+then $(fg)' (x) = f(x)g'(x) + f'(x)g(x)$.
+
+\begin{proof}
+    We have $(fg)(x) = \sum _{i=0} ^k cb_ix^{n+i}$, so 
+    $(fg)'(x) = (n+i)\sum_{i=1} ^k cb_i x^{n+i-1}$.  \\ 
+    \\ 
+    Taking the individual functions' derivatives, we have 
+    $f'(x) = cnx^{n-1}$ and $g'(x) = \sum_{i=1} ^k b_ix^{i-1}$.  So 
+    $fg'(x) = \sum cb_i x^{n+i-1}(i)$ and $f'g(x) = \sum_{i=1}^k cnb_ix^{n+i-1}$, and 
+    $fg'(x) + f'g(x) = (n+i)\sum_{i=1} ^k cb_i x^{n+i-1} = (fg)'(x)$.
+\end{proof}
+
+\subsection*{b}
+
+Claim: If $f(x)$, $g(x)$ are any polynomials in $F[x]$, then $(fg)'(x) = f(x)g'(x) + f'(x)g(x)$.
+
+\begin{proof}
+    Let $f(x)$ be of the form $f(x) = a_0 + a_1 x^1 + \cdots + a_n x^n$.  Then this is the 
+    same form of $g(x)$ from part \textit{a}.  So $(fg)(x)$ can be written as 
+    $(fg)(x) = \sum _{i=0} ^n a_i x^i g(x)$.  We then have for each term 
+    $(a_i x^i g(x))' = i a_i x^{i-1}g(x) + a_i x^i g'(x)$, so by the summation rule, 
+    $(fg)'(x) = (\sum _{i=0} ^n a_i x^i g(x))' = \sum_{i=1}^n i a_i x^{i-1}g(x) + 
+    \sum_{i=0}^n a_i x^i g'(x) = fg'(x) + f'g(x)$.
+\end{proof}
+
+\end{document}

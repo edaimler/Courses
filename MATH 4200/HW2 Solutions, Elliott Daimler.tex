@@ -1,0 +1,250 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\Tau}{\mathrm{T}}
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Section 2.2 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4200 \\
+	Dr. Gay \\ 
+	MWF 9:10am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Exercise 2.4}
+
+Claim: The "standard topology" $\mathcal{T}_{std}$ on $\mathbb{R}^n$ satisfies the four conditions of a topology.
+
+\begin{proof}
+  It is vacuously true that $\emptyset$ is open.  Next, let $\epsilon = 1$; then 
+  for every point $p \in \mathbb{R}$, $B(p, \epsilon) \subset \mathbb{R}$, so $\mathbb{R}$ is open. \\ 
+  \\ 
+  For any $U$, $V \in \mathcal{T}_{std}$, if $U \cap V = \emptyset$, then $U \cap V$ is open.  
+  If $U \cap V \neq \emptyset$, then there is a point $p \in U \cap V$.  Let 
+  $B_U(p, \epsilon_U)$ be the open ball in $U$ around center $p$, and let 
+  $B_V(p, \epsilon_V)$ be the open ball in $V$ around center $p$.  Since 
+  $B_U$ and $B_V$ are concentric, at least one of the following is true: \\
+  \\ 
+  Case 1: $B_U \subset B_V$.  Then $B_U \subset U$ and $B_U \subset V$.  \\ 
+  \\
+  Case 2: $B_V \subset B_U$.  Then $B_V \subset V$ and $B_V \subset U$. \\ 
+  \\ 
+  So for every $U$, $V \in \mathcal{T}_{std}$, $U \cap V \in \mathcal{T}_{std}.$\\ 
+  \\
+  Last, let $\lambda$ be an infinite subset of $\mathcal{T}_{std}$; then for 
+  every point $p \in \cup_{\alpha \in \lambda} U_{\alpha}$ there is a $U_{\beta} \in \lambda$ 
+  where $p \in U_{\beta}$.  It follows that there is an open ball $B(p, \epsilon) \subset U_{\beta}$ 
+  for $\epsilon > 0$, so $B(p, \epsilon) \subset \cup_{\alpha \in \lambda} U_{\alpha}$ and 
+  $\cup_{\alpha \in \lambda} U_{\alpha} \in \mathcal{T}_{std}$.
+\end{proof}
+
+
+\section*{Exercise 2.11}
+
+\subsection*{1}
+
+For the standard topology on $\mathbb{R}$ with $a, b \in \mathbb{R}$, a closed interval $A = [a, b ]$ has limit points 
+$a$ and $b$, because any open interval containing $a$ or $b$ also contains other elements of $A$.  The elements $a, b$ are also 
+contained in $A$.\\ 
+\\ 
+For the finite complement topology on $\mathbb{R}$, the open set $A = (-\infty, 0 ) \cup ( 0, \infty )$ has a limit point $p = 1$; 
+this is because for any open set $B \subset \mathbb{R}$ where $p \in B$, $B$ has infinite points and therefore must contain other points in $A$.
+
+\newpage 
+
+\subsection*{2}
+For the standard topology on $\mathbb{R}$ with $a, b \in \mathbb{R}$, an open interval $A = (a, b)$ has limit points $a$ and $b$ because any 
+open set containing these two points also contains other points in $A$, but $a$, $b$ are not contained in $A$.\\ 
+\\ 
+For the finite complement topology on $\mathbb{R}$, the open set $A = (-\infty, 0) \cup (0, \infty)$ has a limit point $p = 0$.  It is 
+a limit point because for any open set $B \subset \mathbb{R}$ where $p \in B$, $B$ has infinite points so it must contain other points in $A$.
+ 
+\subsection*{3} 
+Any set $A$ in the topology on $\mathbb{R}$ has no limit points, because for any point $p$ in $\mathbb{R}$, the set $\{ p \}$ is open, so $\{p\} - \{p\} \cap A = 0$. 
+It follows that any point in $A$ is an isolated point.  \\ 
+\\ 
+A closed set $A$ in the finite complement topology on $\mathbb{R}$ is finite, so for any point $p \in A$, there is an open set $B$ containing 
+$p$ for which $B - \{p\} \cap A = \emptyset$.  It follows that $A$ has no limit points 
+and $p$ is an isolated point of $A$.
+
+\subsection*{4}
+As explained in part 3), a closed set $A$ in the finite complement topology on $\mathbb{R}$ has no limit points, 
+so for any point $p \notin A$, $p$ is not a limit point of $A$.\\ 
+\\ 
+In the set of integers $\mathbb{Z}$ with the standard topology on $\mathbb{R}$, 
+any non-integer rational $p \in (\mathbb{Q} - \mathbb{Z})$ is not contained 
+in $\mathbb{Z}$; neither is it a limit point of $\mathbb{Z}$, because 
+for any non-integer rational $p$, there is an integer $n$ such that 
+$n < p < n+1$, so there exists an open interval $(n, n+1)$ containing $p$ 
+where $(n, n+1) - \{p\} \cap \mathbb{Z} = \emptyset$.  
+
+
+\section*{Exercise 2.12}
+\subsection*{1}
+Every set with the discrete topology is closed, because every set 
+$B \subset X$ is open, therefore $X - B$ is closed.
+
+\subsection*{2}
+Both sets $X$, $\emptyset$ in the indiscrete topology $\{X, \emptyset \}$ are closed, 
+because both sets are open, so the complements $X - \emptyset = X$ and 
+$X - X = \emptyset$ are closed.  
+
+\subsection*{3} 
+A set $A \subset X$ is open in the finite complement topology when its complement $X - A$ 
+is finite, so every finite set in this topology is closed, including the 
+empty set $\emptyset$.  The entire set $X$ is also closed, because the 
+empty set is open, and its complement $X - \emptyset = X$ is closed.
+
+\subsection*{4}
+A set $A \subset X$ is open in the countable complement topology on $X$ when its complement 
+is countable, so every countable set in $X$ is closed, including the empty set 
+$\emptyset$.  The entire set $X$ is also closed, because the empty set is open, 
+and its complement $X - \emptyset = X$ is closed. 
+
+
+\section*{Exercise 2.18}
+\subsection*{1}
+In the standard topology $\mathcal{T}_{std}$ on $\mathbb{R}$, the finite 
+union $\cup_{i=1}^n [a_i, b_i]$ of any finite set of closed intervals $[a_i, b_i] \in \mathbb{R}$ 
+is closed, but not open.\\ 
+\\ 
+Any finite, nonempty subset $A \subset \mathbb{R}$ with the finite complement topology on $\mathbb{R}$ 
+is closed, but not open.
+
+\subsection*{2}
+For any finite, nonempty set $A \subset \mathbb{R}$ with the finite complement 
+topology on $\mathbb{R}$, its complement $\mathbb{R} - A$ is open, but not closed.\\ 
+\\ 
+Let $\lambda$ be a collection of open intervals $(a, b) \in \mathbb{R}$ with the standard 
+topology on $\mathbb{R}$; then if the union $A= \cup_{(a, b) \in \lambda} (a, b)$ is open
+if $A \subsetneq \mathbb{R}$. 
+
+\subsection*{3} 
+Both elements $X, \emptyset$ in the indiscrete topology $\{X, \emptyset\}$ 
+on $X$ are open and closed. \\ 
+\\ 
+Every set $A \subset \mathbb{R}$ with the discrete topology on $\mathbb{R}$ is 
+both open and closed.
+
+\subsection*{4}
+In the standard topology on $\mathbb{R}$ with $a, b \in \mathbb{R}$ with $a \neq b$, intervals $(a, b]$ 
+that are left-open, right-closed, and intervals $[a, b)$ that are right-open, left-closed, 
+are neither open nor closed.\\ 
+\\ 
+Nonempty proper subsets $A \subsetneq X$ of a set $X$ with the indiscrete topology 
+$\{X, \emptyset \}$ are neither open nor closed.
+
+\newpage 
+
+\section*{Exercise 2.21}
+For $a, b, c \in \mathbb{R}$ with $a < b < c$, let $A = (a, b)$, $B = (a, b) \cup \{c\}$, 
+and let $\mathbb{Q}$ be the rational numbers.
+
+\subsection*{1}
+In the discrete topology on $\mathbb{R}$, every set is open and closed, so 
+$\overline{A} = A$, $\overline{B} = B$, and $\overline{C} = C$.
+
+\subsection*{2}
+For any nonempty subset $U$ of $X$ in the indiscrete topology $\{X, \emptyset \}$, 
+every point in $X$ is a limit point of $U$.  So the closures of $A$, $B$, and $\mathbb{Q}$ 
+are all $X$.
+
+\subsection*{3} 
+The sets $A$, $B$, and $C$ are infinite sets with infinite complements in $\mathbb{R}$, 
+so they are neither open nor closed in the finite complement topology.  
+Any open set $U$ in this topology will have a finite complement, so $U$ must 
+intersect $A$, $B$, and $C$ at infinitely many points.  It follows that 
+any point in $\mathbb{R}$ is a limit point of $A$, $B$, and $C$, so the closure 
+of each of these sets is $\mathbb{R}$. 
+
+\subsection*{4}
+In the standard topology on $\mathbb{R}$, the limit points of $A$ include all points in $(a, b)$ 
+and the points $a$, $b$, so the closure of $A$ is $[a, b]$.\\ 
+\\ 
+Similarly, the limit points of $B$ include all points in $(a, b)$, and the points $a$, $b$.  
+The point $c$ is not a limit point of $B$, so the closure of $B$ is $[a, b] \cup \{c\}$.\\ 
+\\ 
+Any nonempty open subset in $\mathbb{R}$ has a nonempty intersection with $\mathbb{Q}$, 
+so every point in $\mathbb{R}$ is a limit point of $\mathbb{Q}$, and the closure of $\mathbb{Q}$ 
+is $\mathbb{R}$.
+
+\section*{Exercise 2.29}
+As in Exercise 2.21, we will use sets $A = (a, b)$, $B = (a, b) \cup \{c\}$ for 
+$a$, $b$, $c \in \mathbb{R}$ and $a < b < c$, and the rational numbers $\mathbb{Q}$.
+
+\subsection*{1}
+In the discrete topology on $\mathbb{R}$, every subset of $\mathbb{R}$ is open, 
+so the interiors of $A$, $B$, and $\mathbb{Q}$ are $A$, $B$, and $\mathbb{Q}$, 
+respectively.\\ 
+\\ 
+Every subset of $\mathbb{R}$ is also closed in this topology, so each subset 
+along with its complement are closed.  It follows that the boundaries of $A$, 
+$B$, and $\mathbb{Q}$ are all empty.
+
+\subsection*{2}
+The only open subset of $A$, $B$, and $C$ in the indiscrete topology $\{\mathbb{R}, \emptyset \}$ is the empty set $\emptyset$, 
+so the interior of each of these sets is empty.  The only closed set containing each 
+of these sets is the entire set $\mathbb{R}$, so $\overline{A} = \mathbb{R}$, $\overline{B} = \mathbb{R}$, and $\overline{\mathbb{Q}} = \mathbb{R}$.  
+Likewise, the closure of each of their complements is also $\mathbb{R}$, so $\overline{A} \cap \overline{\mathbb{R}-A} = \mathbb{R}$, 
+$\overline{B} \cap \overline{\mathbb{R}-B} = \mathbb{R}$, and $\overline{\mathbb{Q}} \cap \overline{\mathbb{R}-\mathbb{Q}} = \mathbb{R}$.  These 
+are the boundaries of each set.
+
+\subsection*{3} 
+The only open set contained in $A$ in the finite complement topology on $\mathbb{R}$ is the 
+empty set $\emptyset$, and the same is true for sets $B$ and $\mathbb{Q}$, so the interior 
+of each of these sets is empty.  Every point in this topology is a limit point, so 
+$\overline{A} = \mathbb{R}$, $\overline{B} = \mathbb{R}$, and $\overline{\mathbb{Q}} = \mathbb{R}$.  The complement of each of these 
+sets in $\mathbb{R}$ is also infinite, so $\overline{\mathbb{R}-A} = \mathbb{R}$, $\overline{\mathbb{R}-B} = \mathbb{R}$, 
+and $\overline{\mathbb{R}-\mathbb{Q}} = \mathbb{R}$.  It follows that $\overline{A} \cap \overline{\mathbb{R}-A} = \mathbb{R}$, 
+$\overline{B} \cap \overline{\mathbb{R}-B} = \mathbb{R}$, and $\overline{\mathbb{Q}} \cap \overline{\mathbb{R}-\mathbb{Q}} = \mathbb{R}$.  
+These are the boundaries of each set.
+
+\subsection*{4}
+In the standard topology on $\mathbb{R}$, $A$ is open, so $\mathrm{Int}(A) = A$.  
+The interval $(a, b)$ is open, and the only open set contained in $\{c\}$ is 
+the empty set $\emptyset$, so $\mathrm{Int}(B) = (a, b)$.  The only open set contained 
+in $\mathbb{Q}$ is the empty set $\emptyset$, so $\mathrm{Int}(\mathbb{Q}) = \emptyset$. \\ 
+\\ 
+The closure of $A$ in the standard topology on $\mathbb{R}$ is $[a, b]$, and the closure of $\mathbb{R} - A$ is $(-\infty, a] \cup [b, \infty)$, 
+so $\overline{A} \cap \overline{\mathbb{R}-A} = \{a, b\}$ is the boundary.  Similarly, the closure of $B$ is $[a, b] \cup \{c\}$ and 
+the closure of $\mathbb{R} - B$ is $(-\infty, a] \cup [b, \infty) \cup \{c\}$, so 
+$\overline{B} \cap \overline{\mathbb{R}-B} = \{a, b, c\}$ is the boundary.  The closure of 
+$\mathbb{Q}$ is $\mathbb{R}$, and the closure of $\mathbb{R} - \mathbb{Q}$ is 
+$\mathbb{R}$, so the boundary of $\mathbb{Q}$ is $\overline{\mathbb{Q}} \cap \overline{\mathbb{R} - \mathbb{Q}} = \mathbb{R}$. 
+
+
+\end{document}

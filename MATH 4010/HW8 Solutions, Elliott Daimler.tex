@@ -1,0 +1,100 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 8, Sylow Theory Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Let $G = S_9$.  Elements in the centralizer send conjugates of $x$ to $x$; in other words, 
+for elements $g$ in the centralizer of $x$, $gxg^{-1} = x$.  Permutation cycles preserve their structure under conjugation, so 
+the centralizer of $h = (1 \quad 2 \quad 3)(4 \quad 5 \quad 6)(7 \quad 8 \quad 9)$ will preserve its structure.
+Then the centralizer of $(1 \quad 2 \quad 3)(4 \quad 5 \quad 6)(7 \quad 8 \quad 9)$ is the set of permutations in $G$ that 
+permute the elements within each disjoint cycle, i.e. \\
+$g (1 \quad 2 \quad 3)(4 \quad 5 \quad 6)(7 \quad 8 \quad 9) g^{-1} = 
+g (1 \quad 2 \quad 3)g^{-1}g(4 \quad 5 \quad 6)g^{-1}g(7 \quad 8 \quad 9) g^{-1}$.
+The cycles in the conjugation must therefore be of the same disjoint form with elements 
+$1, 2, 3$ in a cycle, $4, 5, 6$ in a cycle, and $7, 8, 9$ in a cycle.  For example, 
+$(1 \quad 2 \quad 3)(1 \quad 2 \quad 3)(4 \quad 5 \quad 6)(7 \quad 8 \quad 9)(1 \quad 3 \quad 2) = 
+(1 \quad 2 \quad 3)(4 \quad 5 \quad 6)(7 \quad 8 \quad 9)$, so $(1 \quad 2 \quad 3)$ is 
+in the centralizer.  We find that the three disjoint cycles generate the centralizer, 
+or $C_{S_9}(h) = <(1 \quad 2 \quad 3), (4 \quad 5 \quad 6), (7 \quad 8 \quad 9)>$.  Each of these 
+dijoint cycles has order 3, and there are $3(3) = 9$ combinations of these elements, 
+so the centralizer contains a Sylow 3-subgroup of $G$.
+
+
+\section*{2}
+
+The three-cycles generating the centralizer in part 1 are even permutations, so are in 
+$A_9$.  Again, they have order three and there are 9 combinations of the generators, 
+so the centralizer is a Sylow 3-subgroup of $G$.
+
+\section*{3}
+
+We will use the approach used in a lemma on interactions of p-Sylows.  
+Let $Q$ be a Sylow-p subgroup of a group $G$, and let $P$ be a p-subgroup of $G$.  
+For the normalizer $N$ of $Q$, let $H = P \cap N$.  $Q$ is a normal subgroup of $N$, 
+so $HQ$ is a subgroup on $N$.  Then $HQ/Q$ is isomorphic to $H/(H \cap Q)$ by the 
+Second Isomorphism Theorem.  $Q$ is a Sylow-p subgroup of $G$, so its order 
+is the highest power of $p$ that divides the order of $G$; as a result, $p$ does 
+not divide the index $[HQ:Q]$.  $H$ is a subgroup of $P$, so $p$ is the only prime 
+dividing the index $[H:H \cap Q]$.  Since these two quotient groups are isomorphic, 
+and $p$ divides one and not the other, their order must be 1.  It follows that $HQ = Q$, 
+so any elements of $P$ that are in the normalizer of $Q$ are also in $Q$.
+
+\newpage
+
+\section*{4}
+
+For Sylow-p subgroup $Q$ of $G$ and p-subgroup $P$ of $G$, let $H = \{gQg^{-1} | g \in G\}$, 
+or the set of conjugates of $Q$ in $G$.  For $P \cap H = \{pQp^{-1} | p \in P \}$, 
+the orbits have orders of $p^n$ for integer $n$.  As with the proof of the Second 
+Sylow Theorem given in our notes, there is a least one orbit of length 1, so there is 
+some $g \in G$ where for every $x \in P$, $x(gQg^{-1})x^{-1} = gQg^{-1}$.  
+The conjugate of $P$ is in the normalizer of $Q$, and so it is also in $Q$.
+
+
+
+
+
+
+\end{document}

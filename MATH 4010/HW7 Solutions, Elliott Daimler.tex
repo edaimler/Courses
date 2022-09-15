@@ -1,0 +1,78 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 8, Sylow Theory Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Claim: 
+
+\begin{proof}
+
+\end{proof}
+
+
+\section*{2}
+
+Claim: Let $G$ be a finite abelian group, and let $p$ be a prime number.  If $p$ divides the order of $G$, then $G$ has 
+an element of order $p$.
+
+\begin{proof}
+    By the Fundamental Theorem of Finite Abelian Groups, $G$ is isomorphic to a direct 
+    sum of cyclic groups of prime power order, $G \cong P_1 \oplus P_2 \oplus \cdots \oplus P_k$.  
+    Since each group $P_i$ in the direct sum is cyclic, it has an element $a$ of order $p_i$, where 
+    $p_i$ is prime and $p_i = |P_i|$.  The order of the direct sum $P_1 \oplus P_2 \oplus \cdots \oplus P_k$ 
+    is $|P_1| \cdot |P_2| \cdot \cdots \cdot |P_k| = p_1 p_2 \cdots p_k = |G|$, so any prime $p$ that 
+    divides $G$ is equal to the order of some $P_i$ in $P_1 \oplus P_2 \oplus \cdots \oplus P_k$, and 
+    consequently is equal to the order of the generator $a$ of the cyclic group $P_i$.  \\ 
+
+    Assume without loss of generality that there is an element $b \in P_1 \oplus P_2 \oplus \cdots \oplus P_k$ 
+    of the form $b = (0, 0, \cdots, a, \cdots, 0)$ where $a$ is in the $i^{th}$ tuple position and all other 
+    positions have a value of zero, the identity for each cyclic group.  Then under the group operation of the 
+    direct sum, the order of $b$ is also $p$.  
+    Since $P_1 \oplus P_2 \oplus \cdots \oplus P_k$ is isomorphic to $G$, there must be an element of order 
+    $p$ in $G$.  So if there is a prime $p$ that divides $G$, that prime is the order of an element in $P_1 \oplus P_2 \oplus \cdots \oplus P_k$ 
+    and thus is the order of an element in $G$.
+\end{proof}
+
+\end{document}

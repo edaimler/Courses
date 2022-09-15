@@ -1,0 +1,71 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Bonus Assignment on Section 9.5 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Claim: Let $G$ be a simple group, and let $K$ be a subgroup of $G$ with index $n$.  Then 
+The order of $G$ divides $n!$.
+
+\begin{proof}
+    Let $\varphi$ be a mapping $\varphi : G \rightarrow A(T)$ defined as 
+    $\varphi(a) = f_{a^{-1}}(Kb) = Kba^{-1}$ for coset $Kb$ in $A(T)$.  We must first 
+    show that $\varphi$ is a homomorphism.  Let $c, d$ in $G$ be given; then 
+    $\varphi(cd) = f_{(cd)^{-1}}(Kb) = Kb(cd)^{-1} = Kbd^{-1}c^{-1}$.  Likewise, 
+    $\varphi(c) \circ \varphi(d) = f_{c^{-1}} \circ f_{d^{-1}} (Kb) = f_{c^{-1}}(Kbd^{-1}) = Kbd^{-1}c^{-1} = \varphi(cd)$, 
+    so $\varphi$ is a homomorphism.  For any $b$ in $Kb$ and $c, d$ in $G$, suppose 
+    $Kbc = Kbd$.  Then $f_c(Kb) = f_d(Kb)$ and $\varphi(c^{-1}) = \varphi(d^{-1})$.  
+    Since $\varphi$ is a homomorphism, $\varphi(c^{-1}) = \varphi(c)^{-1}$ and 
+    $\varphi(d^{-1}) = \varphi(d)^{-1}$, so $\varphi(c)^{-1} = \varphi(d)^{-1}$ 
+    and $\varphi(c) = \varphi(d)$.  It follows that $c = d$, and $\varphi$ is injective, 
+    so the kernel of $\varphi$ is the identity $e$, so $A(T)$ is isomorphic to $S_n$.  
+    The cosets of $T$ are closed under multiplication and inverses, so $\varphi$ 
+    maps $G$ to a subgroup of $A(T)$ and thus to a subgroup of $S_n$.  By Lagrange's 
+    Theorem, $G$ divides $|S_n| = n!$.
+    
+\end{proof}
+
+
+
+\end{document}

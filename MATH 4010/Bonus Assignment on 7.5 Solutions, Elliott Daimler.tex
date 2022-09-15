@@ -1,0 +1,87 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Bonus Assignment on 7.5 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+Claim: If $G = S_3$ then $\mathrm{Inn}(G) = \mathrm{Aut}(G)$. 
+
+\begin{proof}
+    We know that $\mathrm{Inn}(G) \subseteq \mathrm{Aut}(G)$, so we must show that $\mathrm{Aut}(G) \subseteq \mathrm{Inn}(G)$.  Since $S_3$ has only 6 elements, we will list the elements explicitly: \\
+
+    $(1 \: 2 \: 3) = (1 \: 2)(1 \: 3 \: 2)(1 \: 2)$ \\
+    $(1 \: 3 \: 2) = (1 \: 2)(1 \: 2 \: 3)(1 \: 2)$ \\
+    $(1 \: 2) = (1 \: 2)(1 \: 2)(1 \: 2)$ \\
+    $(1 \: 3) = (1 \: 2)(2 \: 3)(1 \: 2)$ \\
+    $(2 \: 3) = (1 \: 2)(1 \: 3)(1 \: 2)$ \\
+    $e = (1 \: 2)e(1 \: 2)$. \\
+
+We have shown that every automorphism of $G$ can be written as an inner automorphism, and is thus an element of 
+the inner automorphism group.  So $\mathrm{Inn}(G) \subseteq \mathrm{Aut}(G)$ and $\mathrm{Aut}(G) \subseteq \mathrm{Inn}(G)$, and as a result,  
+$\mathrm{Inn}(G) = \mathrm{Aut}(G).$
+\end{proof}
+
+\section*{2}
+Claim: The symmetric group $S_n$ is isomorphic to a subgroup of the alternating group $A_{n+2}$. 
+
+\begin{proof}
+    We define a map $f: S_n \rightarrow A_{n+2}$ as follows: for every permutation $\tau_j$ in $S_n$ for even $j$, $f(\tau_j) = \tau_j$, and for every permutation $\tau_k$ in $S_n$ for odd $k$, $f(\tau_k) = \tau_k \sigma$ where $\sigma$ is the transposition $ ( n \: \: \: n+1 )$.  Note that $\sigma$ and any $\tau$ are disjoint, and note that $\sigma$ is order 2.  We must show that this map is an isomorphism. \\
+
+First, let two permutations $\tau_a$, $\tau_b$ in $S_n$ be given.  Their product $\tau_a \tau_b$ is either even or odd; if even, $f(\tau_a \tau_b) = \tau_a \tau_b$.  If the product is odd, $f(\tau_a \tau_b) = \tau_a \tau_b \sigma$, which produces an even permutation.  Now suppose $\tau_a$ is even and $\tau_b$ is even.  Then $f(\tau_a)f(\tau_b) = \tau_a \tau_b$.  If one of $\tau_a$, $\tau_b$ is even and the other odd, then the product of the mappings $f(\tau_a)f(\tau_b)$ is either $\tau_a \sigma \tau_b$ or $\tau_a \tau_b \sigma$, and since $\sigma$ is disjoint, these two terms are equal.  If both $\tau_a$ and $\tau_b$ are odd, then $f(\tau_a)f(\tau_b) = \tau_a \sigma \tau_b \sigma = \tau_a \sigma \sigma \tau_b = \tau_a \tau_b$.  So $f(\tau_a \tau_b) = f(\tau_a)f(\tau_b)$, and the mapping $f$ is a homomorphism. \\
+
+Next, let two permutations $\tau_a$, $\tau_b$ be given, and suppose $f(\tau_a) = f(\tau_b)$.  We have two cases for $f(\tau_a)$.  Either $f(\tau_a) = \tau_a$, or $f(\tau_a) = \tau_a \sigma$.  In the former case, this implies $\tau_a = \tau_b$.  In the latter case, this implies $\tau_a \sigma = \tau_b \sigma$.  Then with $\sigma$ being order 2, we have 
+
+\begin{alignat*}{1}
+    \tau_a \sigma \sigma^{-1} &= \tau_b \sigma \sigma^{-1}  \\ 
+    \rightarrow \tau_a \sigma \sigma &= \tau_b \sigma \sigma \\ 
+    \rightarrow \tau_a &= \tau_b, \\
+\end{alignat*}
+
+so the mapping $f$ is injective. \\
+
+To show that $f$ is surjective, let $\phi$ in $B \subseteq A_{n+2}$ be given.  Then $\phi$ is either of the form $\tau_a$ for even $a$, or $\tau_a \sigma$ for odd $a$.  Since $\tau_a$ is a permutation of at most length $n$, it is in the group $S_n$ and we can choose $\tau_a$ from $S_n$ to map $f(\tau_a) = \phi$, so the mapping $f$ is surjective. \\
+
+By the properties of homomorphisms, $f$ maps the identity in $S_n$ to the identity in $B \subseteq A_{n+2}$, and likewise it maps all inverses to $B$.  Since $\sigma$ is of order 2, the product of any two elements $\phi$ and $\alpha$ in $B$ are of the form $\tau_a$ for even $a$, or $\tau_a \sigma$ for odd $a$, so $B$ is closed under the group operation and is a subgroup of $A_{n+2}$.
+\end{proof}
+
+\end{document}

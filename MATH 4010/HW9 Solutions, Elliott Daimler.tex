@@ -1,0 +1,125 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Homework 9, Section 9.4 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4010 \\
+	Dr. Chastkofsky \\ 
+	MWF 10:20am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{1}
+
+Let $N$ be a normal subgroup of $G$, let $a \in G$, and let $C$ be the conjugacy 
+class of $a$ in $G$. 
+
+\subsection*{a)} 
+Claim: $a \in N$ if and only if $C \subseteq N$. 
+
+\begin{proof}
+    Suppose $a \in N$.  Since $N$ is normal,
+     for any $h = g^{-1}ag$ for $g \in G$, $h \in N$, so all conjugates of 
+     $a$ are in $N$. \\ 
+     Conversely, suppose $C \subseteq N$.  Then there is some $h \in N$ where 
+     $h = g^{-1}ag$.  Again, since $N$ is normal, for any $x \in G$, $xNx^{-1} = N$, 
+     so $xhx^{-1} = xx^{-1}axx^{-1} = a \in N$.
+\end{proof}
+
+\subsection*{b)} 
+Claim: If $C_i$ is any conjugacy class in $G$, prove that $C_i \subseteq N$ 
+or $C_i \cap N = \emptyset$.
+
+\begin{proof}
+    Assume there is some non-identity $h \in N$ and $h \in C_i$.  Now assume 
+    for the purpose of contradiction that $C_i \nsubseteq N$.  Then there is 
+    some $x \in G$ such that for any $y \in C_i$, $g^{-1}hg = y$ for $g \in G$.  
+    Since $g^{-1}Ng = N$, $g^{-1}hg \in N$ which implies that $y \in N$.  So all 
+    elements in $C_i$ are in $N$, and we have a contradiction.
+\end{proof}
+
+\subsection*{c)} 
+The class equation shows that for a group $G$, $|G| = |C_1| + |C_2| + \cdots + |C_i|$.  
+We've shown that each class equation belongs to one and only one normal subgroup of $G$, 
+so it follows that $|N| = |C_1| + |C_2| + \cdots + |C_i|$ where $C_1, C_2, \cdots, C_i$ 
+are the conjugacy classes contained in $N$.
+
+\section*{2}
+
+Claim: If $N \neq <e>$ is a normal subgroup of $G$ and $|G| = p^n$, $N \cap Z(G) \neq <e>$.
+
+\begin{proof}
+    By the First Sylow Theorem, $G$ is a Sylow p-group, so its subgroups are p-subgroups and 
+    thus have non-trivial centers.  Consider a normal subgroup $M$ of one of these p-subgroups $P$;
+    the conjugation of $M$ by $g \in G$ then maps $a \in Z(P)$ to itself, and $a$ is in $M$ 
+    so the intersection is non-trivial.
+\end{proof}
+
+\section*{3}
+
+Claim: If $K$ is a Sylow p-subgroup of $G$ and $H$ is a subgroup that contains the 
+normalizer $N(K)$, then $[G:H] \equiv 1 \mod p$.
+
+\begin{proof}
+    By Theorem 9.25, the number of distinct H-conjugates of $K$ is $[H:H \cap N(K)]$.  
+    Since $H$ contains $N(K)$, $H \cap N(K) = N(K)$.  The index $[G:N(K)]$ is equal to 
+    $1 \mod p$, and $[H:N(K)] = 1 \mod p$, so $[G:N(K)] = [G:H][H:N(K)] = [G:H] \cdot 1 \mod p =
+    1 \mod p$.  
+
+\end{proof}
+
+
+\section*{4}
+
+Claim: If $K$ is a Sylow p-subgroup of a group $G$, then its $N(N(K)) = N(K)$ where 
+$N()$ is a normalizer.
+
+\begin{proof}
+    Since $K$ is a Sylow p-subgroup of both $N(K)$ and $N(N(K))$, then for some 
+    $g \in N(N(K))$, $g^{-1}Kg$ is a subgroup of $g^{-1}N(K)g$.  $N(K)$ is normal, so 
+    $g^{-1}N(K)g = N(K)$.  By the conjugation property of Sylow p-groups, there is some 
+    $h \in N(K)$ where $g^{-1}Kg = h^{-1}Kh$.  Since $h$ is in the normalizer of $K$, its 
+    conjugation of $K$ remains in $K$, or $g^{-1}Kg = h^{-1}Kh = K$.  It follows that 
+    $g$ is also in $N(K)$.
+\end{proof}
+
+
+
+
+
+
+\end{document}

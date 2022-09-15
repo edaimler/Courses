@@ -1,0 +1,78 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\Tau}{\mathrm{T}}
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Section 3.4 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4200 \\
+	Dr. Gay \\ 
+	MWF 9:10am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Exercise 3.30}
+
+Theorem: Let $(X, \mathcal{T})$ be a topological space, and let $(Y, \mathcal{T}_Y)$ be a subspace.  If $\mathcal{B}$ is a 
+basis for $\mathcal{T}$, then $\mathcal{B}_Y = \{B \cap Y | B \in \mathcal{B} \}$ is a basis for $\mathcal{T}_Y$.
+
+\begin{proof}
+  The set $\mathcal{B}$ is a basis for $\mathcal{T}$, so for any $x \in X$ there is a $B \in \mathcal{B}$ where $x \in B$.  Since $Y$ is a subset of 
+  $X$, for any $y \in X$ there is also a $C$ where $y \in C$, so $y \in Y \cap C \in \mathcal{B}_Y$. \\ 
+  \\ 
+  Next, let $U_Y$, $V_Y \in \mathcal{B}_Y$ be given where $U_Y \cap V_Y \neq \emptyset$, and let $p \in U_Y \cap V_Y$ be given.  There are some $U \in \mathcal{B}$ 
+  and $V \in \mathcal{B}$ such that $U \cap Y = U_Y$, $V \cap Y = V_Y$, so $p \in U \cap V$.  It follows that there is some $W \subset (U \cap V)$ where $p \in W$, 
+  and $(W \cap Y) \subset (U_Y \cap V_Y)$, so $p \in (W \cap Y)$.
+\end{proof}
+
+\section*{Exercise 3.31} 
+
+\subsection*{1} 
+$D = \left\lbrace \left( x, \frac{1}{2}\right) | 0 < x < 1 \right\rbrace$. 
+
+
+\subsection*{2} 
+$E = \left\lbrace \left( \frac{1}{2}, y\right) | 0 < y < 1 \right\rbrace$. 
+
+
+
+\subsection*{3} 
+$F = \left\lbrace \left( x, 1 \right) | 0 < x < 1 \right\rbrace$. 
+
+
+
+\end{document}
