@@ -1,0 +1,91 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\Tau}{\mathrm{T}}
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Section 5.1 and Order Topology Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4200 \\
+	Dr. Gay \\ 
+	MWF 9:10am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Theorem 5.5}
+
+If $X$ and $Y$ are separable spaces, then $X \times Y$ is separable.
+
+\begin{proof}
+Both $X$ and $Y$ have countable dense subsets; call these subsets $A \subset X$ and $B \subset Y$.  
+The product $A \times B$ is countable.  There is no closed proper subset of $X$ that contains $A$.  \\
+\\
+Let $p = (x, y) \in X \times Y$ be given, where $x \in A$ and $y \in B$.  Then for every open set 
+$U \subset X$ where $U \ni x$, $(U - x) \cap A$ is nonempty.  Similarly, for every open set 
+$V \subset Y$ where $V \ni y$, $(V - y) \cap B$ is nonempty.  It follows that $U \times V$ 
+contains $p$, and $(U \times V - p) \cap A \times B$ is nonempty, so $A \times B$ is separable.
+
+
+\end{proof}
+
+\section*{Order Topology Theorem} 
+
+The order topology is normal.
+
+\begin{proof}
+  Let $(X, \mathcal{T}_{order})$ be the topological space made by the order topology with set $X$, and let 
+  $A$, $B$ be disjoint closed sets in $X$.  Let $C$ be the complement of $A \cup B$ in $X$, or 
+  $C = X - (A \cup B)$.  Let $a \in A$ be given.\\ 
+  \\ 
+  For some $b_1 \in B$, there is a set $(a, b_1) = \{x | a < x < b_1 \quad for \quad x \in X \}$ where $(a, b_1) \cap A = \emptyset$  
+  and $(a, b_1) \cap B = \emptyset$.  Note that this set may be empty.  The set $(a, b_1)$ is open.  
+  Remove some point $c$ from this set, and we have two open intervals, either of which may be empty: $(a, c)$ and $(c, b_1)$.   
+  For some other $b_2 \in B$, there is a set $(b_2, a) = \{x | b_2 < x < a \quad for \quad x \in X \}$ where $(b_2, a) \cap A = \emptyset$ 
+  and $(b_2, a) \cap B = \emptyset$.  Again, this set may be empty.  Removing a point $e$ from this set and proceeding in a similar manner as above, 
+  we have two open intervals $(b_2, e)$ and $(e, a)$, either of which may be empty.  Then taking the union $(e, a) \cup \{a\} \cup (a, c)$, we 
+  have an open set $(e, c) = \{ x | e < x < c \quad for \quad x \in X\}$ that contains $a$ and contains no points in $B$.  
+  Assuming without loss of generality that $(e, a)$ is empty, the union above becomes $(b_2, a) \cup \{a\} \cup (a, c)$, and 
+  still contains no points in $B$ and is open. \\ 
+  \\
+  For $b_1$, we can construct an open set (possibly empty) $(b_1, f)$ using the method above and take a union $(c, b_1) \cup \{b\} (b_1, f)$ 
+  which contains no points in $A$.  Proceeding in this manner for $d$ and all other elements of $A$ and $B$, we can construct an open set 
+  containing every point in $A$ and every point in $B$, where each of these sets are disjoint.  Taking the union of all of these sets that 
+  contain points in $A$, we have an open set containing all of $A$, and taking the union of all of these sets that contain points in $B$, 
+  we have an open set containing all of $B$.  These open sets containing $A$ and $B$ are disjoint.
+\end{proof}
+
+
+\end{document}

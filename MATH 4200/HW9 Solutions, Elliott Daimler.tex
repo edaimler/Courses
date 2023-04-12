@@ -1,0 +1,94 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\Tau}{\mathrm{T}}
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Section 6.3 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4200 \\
+	Dr. Gay \\ 
+	MWF 9:10am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Exercise 6.22}
+
+Given the space $2^X$ and preimage $\pi^{-1}_x(\delta)$, where $\delta \in \{0, 1\}$ and 
+$\pi^{-1}_x(\delta) = \{f \in \{0, 1\}^X | f(x) = \delta \}$, we have the subbasis $\mathcal{S} = \{\pi^{-1}_x(\delta) | x \in X, \delta \in \{0,1\} \}$.  
+For any open cover $\mathcal{B} \subset \mathcal{S}$, let $B \in \mathcal{B}$ be given; then $B$ is of the form $\pi^{-1}_x(\delta)$ for some $x \in X$.  
+Let $\gamma \in \{0,1\}$ such that $\gamma \neq \delta$; for any $y \notin B$, $y \in \pi^{-1}_x(\gamma)$.  \\ 
+\\ 
+It remains to show that for some $\pi^{-1}_x(0)$ in $\mathcal{B}$, $\pi^{-1}_x(1)$ is also in $\mathcal{B}$.  Suppose for the 
+purpose of contradiction there is no $\pi^{-1}_x(0)$ in $\mathcal{B}$ where $\pi^{-1}_x(1)$ is also in $\mathcal{B}$;  
+then $\mathcal{B} = \{ \pi^{-1}_x(\delta) | x \in X \quad and \quad \delta \in \{0, 1\} - \{\gamma \} \}$ and 
+
+\begin{alignat*}{1}
+    \bigcap _{x \in X, \gamma \neq \delta} \pi^{-1}_x(\gamma)
+\end{alignat*}
+
+is not in any subset of $\mathcal{B}$, but $\mathcal{B}$ covers $2^X$, so we have a 
+contradiction.  So for any cover $\mathcal{B}$ of $2^X$, there is an $x \in X$ such that 
+$\pi^{-1}_x(0) \in \mathcal{B}$ and $\pi^{-1}_x(1) \in \mathcal{B}$, making a finite subcover 
+of two subbasic sets.
+
+\newpage 
+
+
+\section*{Exercise 6.24}
+
+Let $U = [0, 2/3)$ and let $V = (1/3, 1]$.  Then for countably infinite set $\omega$, we have a cover 
+$\mathcal{C} = \{U_i, V_i | i \in \omega \}$ of $[0, 1]^\omega$ with the 
+box topology.  Each $C \in \mathcal{C}$ is of the form 
+
+\begin{alignat*}{1}
+    C &= \prod _{C_i \in \{U_i, V_i\}}^\omega C_i \\ 
+    &= \bigg(  \prod _{C_i \in \{U_i, V_i\}, i \neq j}^\omega C_i \bigg) \times C_j .
+\end{alignat*}
+
+For any $j \in \omega$ and any $D_j \in \{U_j, V_j\}$ where $D_j \neq C_j$ then, we have 
+
+\begin{alignat*}{1}
+    D &= \bigg(  \prod _{C_i \in \{U_i, V_i\}, i \neq j}^\omega C_i \bigg) \times D_j \\ 
+    &\neq \bigg(  \prod _{C_i \in \{U_i, V_i\}, i \neq j}^\omega C_i \bigg) \times C_j.
+\end{alignat*}
+
+Suppose for the purpose of contradiction that $D$ is not in $\mathcal{C}$.  Then $\mathcal{C}$ 
+is not a cover of $[0, 1]^\omega$, a contradiction.  So $D$ must be in $\mathcal{C}$ for 
+every $D_j \neq C_j$, and there are infinitely many necessary products for $\mathcal{C}$ 
+to be a cover, so $\mathcal{C}$ has no finite subcover.
+
+\end{document}

@@ -1,0 +1,135 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\Tau}{\mathrm{T}}
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Section 3.4 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4200 \\
+	Dr. Gay \\ 
+	MWF 9:10am \\
+	\date\today+
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Theorem 3.30}
+
+Theorem: Let $(X, \mathcal{T})$ be a topological space, and let $(Y, \mathcal{T}_Y)$ be a subspace.  If $\mathcal{B}$ is a 
+basis for $\mathcal{T}$, then $\mathcal{B}_Y = \{B \cap Y | B \in \mathcal{B} \}$ is a basis for $\mathcal{T}_Y$.
+
+\begin{proof}
+  The set $\mathcal{B}$ is a basis for $\mathcal{T}$, so for any $x \in X$ there is a $B \in \mathcal{B}$ where $x \in B$.  Since $Y$ is a subset of 
+  $X$, for any $y \in X$ there is also a $C$ where $y \in C$, so $y \in Y \cap C \in \mathcal{B}_Y$. \\ 
+  \\ 
+  Next, let $U_Y$, $V_Y \in \mathcal{B}_Y$ be given where $U_Y \cap V_Y \neq \emptyset$, and let $p \in U_Y \cap V_Y$ be given.  There are some $U \in \mathcal{B}$ 
+  and $V \in \mathcal{B}$ such that $U \cap Y = U_Y$, $V \cap Y = V_Y$, so $p \in U \cap V$.  It follows that there is some $W \subset (U \cap V)$ where $p \in W$, 
+  and $(W \cap Y) \subset (U_Y \cap V_Y)$, so $p \in (W \cap Y)$.
+\end{proof}
+
+\section*{Exercise 3.31} 
+
+
+
+\subsection*{1} 
+
+$D = \left\lbrace \left( x, \frac{1}{2}\right) | 0 < x < 1 \right\rbrace$. \\ 
+\\ 
+For any point $(x, y)$ in the lexographically ordered square, we have the open set 
+ $U = \{ (w, z) | (x, y) < (w, z) \}$.  For any point $(w, z)$ in the square, if $x < w$, then 
+ $(w, z) \in U$, so the interval $(x, 1) \times \{\frac{1}{2}\} \subset (U \cap D)$ is open in $D$.  If $x = w$ and $\frac{1}{2} < z$, then 
+ $(w, z)$ is also in $U$, so the interval $[x, 1) \times \{\frac{1}{2}\} \subset (U \cap D)$ is open in $D$, and the point $\{x \} \times \{\frac{1}{2}\}$ 
+ is open in $D$.\\ 
+ \\ 
+The set $V = \{ (w, z) | (w, z) < (x, y) \}$ in the square contains all points $(w, z)$ where $w < x$, so  
+$(0, x) \times \{ \frac{1}{2} \} \subset (V \cap D)$.  For any $w = x$, $z < y$, the point $(w, z)$ is also contained in $V$, 
+so $(0, x] \times \{ \frac{1}{2} \} \subset (V \cap D)$ is open in $D$. \\ 
+\\ 
+Given point $(x, y)$ and set $W = \{ (w, z) | (w, z) < (x, y) \} \cup \{ (a, b) | (x, y) < (a, b) \}$ in the square, the subset 
+$(w, a) \times \{ \frac{1}{2} \} \subset (W \cap D)$ is open in $D$.\\ 
+\\ 
+To summarize, for any point $(x, \frac{1}{2}) \in D$, the sets $(x, 1) \times \{ \frac{1}{2} \}$ and 
+$[x, 1) \times \{ \frac{1}{2} \}$ are open in $D$; $(w, a) \times \{ \frac{1}{2} \}$ is open, where $w < x < a$; 
+and and the point $\{x\} \times \{\frac{1}{2}\}$ is open in $D$, so any set of the form $[w, x] \times \{\frac{1}{2}\}$ for $w < x$ 
+or of the form $[x, w]\times \{\frac{1}{2}\}$ for $x < w$ are open in $F$.. \\
+
+\newpage
+
+\subsection*{2} 
+$E = \left\lbrace \left( \frac{1}{2}, y\right) | 0 < y < 1 \right\rbrace$. \\
+\\
+For any point $(x, y)$ in the square, we have the open set 
+ $U = \{ (w, z | (x, y) < (w, z) \}$.  For any point $(w, z)$ in the square, if $x < w$, then 
+ $(w, z) \in U$, so for points where $x < \frac{1}{2}$ in the square, the set $\{ \frac{1}{2} \} \times [y, 1) \subset (U \cap E)$ is open in $E$.  
+ Similarly, the point $\{\frac{1}{2}\} \times \{y\}$ is open in $E$.  
+ If $x = \frac{1}{2}$ and $y < z$, then the set $\{ \frac{1}{2} \} \times (y, 1) \subset (U \cap E)$ is open in $E$. \\ 
+ \\ 
+The set $V = \{ (w, z) | (w, z) < (x, y) \}$ in the square contains all points $(w, z)$ where $w < x$, so for points where $ \frac{1}{2} < x$, the set 
+$\{ \frac{1}{2} \} \times (0, y] \subset (V \cap E)$.  Where $\frac{1}{2} = x$, $z < y$, the point $(w, z)$ is also contained in $V$, 
+so $\frac{1}{2} \times (0, y) \subset (V \cap E)$ is open in $E$. \\ 
+\\ 
+Given point $(x, y)$ and set $W = \{ (w, z) | (w, z) < (x, y) \} \cup \{ (a, b) | (x, y) < (a, b) \}$ in the square, the subset 
+$\{ \frac{1}{2} \} \times (z, b) \subset (W \cap E)$ is open in $E$.\\ 
+\\ 
+To summarize, for any point $(\frac{1}{2}, y) \in E$, the sets $\{ \frac{1}{2} \} \times [1, y)$ and 
+$\{ \frac{1}{2} \} \times (y, 1) $ are open in $E$, and $\{ \frac{1}{2} \} \times (z, b)$ is open, where $z < y < b$. 
+The point $\{\frac{1}{2}\} \times \{y\}$ is open in $E$, so sets of the form $\{\frac{1}{2}\} \times [z, y]$ 
+where $z < y$ or of the form $\{\frac{1}{2}\} \times [y, z]$ where $y < z$ are open in $E$.\\
+
+
+\subsection*{3} 
+$F = \left\lbrace \left( x, 1 \right) | 0 < x < 1 \right\rbrace$.  \\ 
+\\ 
+Given a point $(x, y)$ in the lexographically ordered square and the open set $U = \{ (w, z | (x, y) < (w, z) \}$, then if 
+$x < w$, the set $(x, 1) \times \{1 \} \subset (U \cap F)$ is open in $F$.  If $x = w$ and $z < 1$, then the set 
+$[x, 1) \times \{ 1 \} \subset (U \cap F)$ is open in $F$, and the point $\{x\} \times \{1\}$ is open in $F$.\\ 
+\\ 
+The open set $V$ in the square where $V = \{ (w, z) | (w, z) < (x, y) \}$ contains all points where $w < x$, so 
+$(0, x) \times \{1 \} \subset (V \cap F)$ is open in $F$.  Points where $w = x$ and $z < 1$ are also in $V$, 
+so $(0, x] \times \{1 \} \subset (V \cap F)$ is also open in $F$. \\ 
+\\ 
+Last, similar to the above topologies, the open set $W = \{ (w, z) | (w, z) < (x, y) \} \cup \{ (a, b) | (x, y) < (a, b) \}$ 
+in the square contains all points $(x, y)$ where $w < x < a$ and $z < y < b$, so the set 
+$(w, a) \times \{ 1 \} \subset (W \cap F)$ is open in $F$.\\ 
+\\ 
+The sets $[x, 1) \times \{ 1 \} \subset (U \cap F)$ and $(0, x] \times \{1 \} \subset (V \cap F)$ are open in $F$, 
+and $(w, a) \times \{ 1 \} \subset (W \cap F)$ is open in $F$, where $w < x < a$.  Moreover, the point $\{x\} \times \{1\}$ is open in $F$, 
+so any set of the form $[w, x] \times \{1\}$ for $w < x$ or of the form $[x, w]\times \{1\}$ for $x < w$ are open in $F$.\\
+\\ 
+The open sets of these topological subspaces include open intervals, half-open-and-half-closed intervals, closed intervals, 
+and points.  Taking the union of these sets in each space, one can construct any subset of the respective space, so these 
+topologies resemble the discrete topology.\\ 
+
+\end{document}

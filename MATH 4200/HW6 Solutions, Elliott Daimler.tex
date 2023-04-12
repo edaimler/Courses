@@ -1,0 +1,95 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\Tau}{\mathrm{T}}
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Section 4.2 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4200 \\
+	Dr. Gay \\ 
+	MWF 9:10am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Theorem 4.16}
+
+Let topological spaces $X$ and $Y$ be Hausdorff.  Then $X \times Y$ is Hausdorff. 
+
+\begin{proof}
+  Let $a = (a_x, a_y)$ and $b = (b_x, b_y)$ be points in $X \times Y$ where $a_x$, $b_x \in X$ and $a_y$, $b_y \in Y$.  If 
+  $a \neq b$, then $a_x \neq b_x$ or $a_y \neq b_y$.  \\
+  \\
+  Suppose $a_x \neq b_x$; since $X$ is Hausdorff, there exist open sets $U_a \ni a_x$ and $U_b \ni b_x$ such that $U_a \cap U_b = \emptyset$, 
+  so for any open sets $V_a$, $V_b \subset Y$ where $V_a \ni a_y$ and $V_b \ni b_y$, we have 
+
+  \begin{alignat*}{1}
+    (U_a \times V_a) \cap (U_b \times V_b) &= \left[ \pi^{-1}(U_a) \cap \pi^{-1}(V_a) \right] \cap \left[ \pi^{-1}(U_b) \cap \pi^{-1}(V_b) \right] \\ 
+    &= \emptyset.
+  \end{alignat*}
+  If $a_y \neq b_y$, then by the same reasoning as above we have open sets $V_a \ni a_y$ and $V_b \ni b_y$ where $V_a \cap V_b = \emptyset$, 
+  and sets $(U_a \times V_a)$ and $(U_b \times V_b)$ are disjoint, so $X \times Y$ is Hausdorff.
+\end{proof}
+
+
+
+\section*{Theorem 4.17} 
+
+Let topological spaces $X$ and $Y$ be regular.  Then $X \times Y$ is regular.
+
+\begin{proof}
+  Let $p = (p_x, p_y)$ be a point in $X \times Y$, and let $U_x \times U_y$ be an open set in $X \times Y$ where 
+  $U_x$ is a basic element in $X$ and $U_y$ is a basic element in $Y$.  Then $p_x \in U_x$ and $p_y \in U_y$. $X$ and $Y$ are each regular, so by Theorem 4.8, 
+  there exist open sets $V_x \ni p_x$, $V_y \ni p_y$ where $V_x \subset U_x$ and $V_y \subset U_y$ such that 
+  $\overline{V_x} \subset U_x$ and $\overline{V_y} \subset U_y$.  The point $p$ is in $V_x \times V_y$, and 
+  $\overline{V_x} \times \overline{V_y} \subset U_x \times U_y$.  \\ 
+  \\ 
+  It remains to show that $\overline{V_x} \times \overline{V_y}$ is closed.  Let $q = (q_x, q_y)$ be a limit point of $V_x \times V_y$, 
+  and let $Q_x \times Q_y \ni q$ be open where $Q_x \subset X$ and $Q_y \subset Y$ are basic elements.  Then $q_x \in Q_x$ and $q_y \in Q_y$, 
+  and $(Q_x - q_x) \cap V_x$ is nonempty, and $(Q_y - q_y) \cap V_y$ is nonempty, so $q_x \in \overline{V_x}$ and $q_y \in \overline{V_y}$.  It follows that 
+  $q \in \overline{V_x} \times \overline{V_y}$ and $\overline{V_x} \times \overline{V_y}$ is closed.  By Theorem 4.8, $X \times Y$ is regular.
+\end{proof}
+
+\newpage 
+
+\section*{Exercise 4.18} 
+
+Let the set $A \in \mathbb{R}_{LL} \times \mathbb{R}_{LL}$ be the function $f(x) = y = 1 - x$ from $x \in \left[ 0, 1 \right]$, and 
+$g(x) = y = -1 + x$ from $x \in \left[ 0, 1 \right]$.  Let $U \subset \mathbb{R}_{LL} \times \mathbb{R}_{LL}$ be open where 
+$U = [0, 2) \times [-1, 2)$; then $U$ contains $A$.  It is not true that $ 
+
+
+\end{document}

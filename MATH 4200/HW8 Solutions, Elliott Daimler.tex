@@ -1,0 +1,79 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\Tau}{\mathrm{T}}
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{\textbf{Sections 6.1, 6.2 Solutions}}
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+	Elliott Daimler \\
+	MATH 4200 \\
+	Dr. Gay \\ 
+	MWF 9:10am \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Exercise 6.10}
+
+Let $(X, \mathcal{T})$ be a topological space made by an indiscrete topology on $X$, and let $U$ be a proper nonempty subset of $X$.  
+Since $X$ is the only nonempty open set in $\mathcal{T}$, any covering $\mathcal{C}$ of $U$ must be of the form $\mathcal{C} = X$, which 
+is finite, so $U$ is compact.  The complement of $U$ is not open in $(X, \mathcal{T})$, so $U$ is not closed. 
+
+
+\section*{Exercise 6.11} 
+
+Given some topological space $(X, \mathcal{T})$ and subsets $A$ and $B$, in order for the intersection of  
+$A$ and $B$ to be necessarily compact, we should impose the additional restriction that 
+the intersection of $A$ and $B$ is closed.  Then, by Theorem 6.7, $A \cup B$ is compact, and 
+we can treat $A \cap B$ as a closed subspace of $X$; by Theorem 6.8, this subspace
+inherits compactness from $A \cup B$.  We can extend the intersection to finitely many subsets of $X$ with the condition 
+that the resulting intersection is closed.
+
+
+
+\section*{Exercise 6.16}
+
+Let $(\mathbb{Q}, \mathcal{T}_{std})$ be the topological subspace of rationals with the standard topology inherited from $\mathbb{R}_{std}$.  
+For the constant $\pi$, the intervals $(-\infty, -\pi)$ and $(\pi, \infty)$ are open in $\mathbb{R}_{std}$, so $(-\infty, -\pi) \cap \mathbb{Q}$ 
+and $(\pi, \infty) \cap \mathbb{Q}$ are both open in $(\mathbb{Q}, \mathcal{T}_{std})$.  Their complement $[-\pi, \pi] \cap \mathbb{Q}$, henceforth $A$,  
+is bounded and closed in $(\mathbb{Q}, \mathcal{T}_{std})$, but we can construct an open cover of $A$ that has no finite subcover.\\ 
+\\ 
+Let $\mathcal{C} = \{ (x, y) | x < y \quad and \quad x, y \in A \}$ be an open cover of $A$.  For any finite subset $\mathcal{C}'$ of 
+$\mathcal{C}$, there is some $y_0 < \pi$ such that for every interval $(x, y) \in \mathcal{C}'$, $y \leq y_0$ and there is an $x_0 > -\pi$ such that 
+for every interal $(x, y) \in \mathcal{C}'$, $x \leq x_0$.  But there are rationals $y_1, x_1 \in A$ where $y_0 < y_1 < \pi$ and $-\pi < x_1 < x_0$, so 
+$y_1$ and $x_1$ are not contained in $\mathcal{C}'$ and $\mathcal{C}'$ does not cover $A$.
+
+
+\end{document}

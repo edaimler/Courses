@@ -1,0 +1,81 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry} %reduce margins to 0.5 inch
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%\pagestyle{fancy}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\Tau}{\mathrm{T}}
+
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1}
+
+\title{ }
+\date{}
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\fancypagestyle{firstpage}{%
+  \rhead{
+    Elliott Daimler \\
+    MATH 4200 \\
+	\date\today
+  }
+  
+}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\thispagestyle{firstpage}
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Exercise 4.5}
+
+Claim: The set of rationals $\mathbb{R}$ with the lower limit topology is normal.
+
+\begin{proof}
+    The approach used below employs the fact that for $x$, $y \in \mathbb{R}_{LL}$ where $x < y$, there exist disjoint open 
+    sets $[x, y)$ and $[y, z)$ for some $z > y$.  \\ 
+    \\ 
+    Let $A$, $B$ be disjoint closed sets 
+    in $\mathbb{R}_{LL}$, and let $a$ be any point in $A$.  Then for any 
+    points $b_i \in B$ where $a < b_i$, there is some minimum point $\mathrm{Min}(b_i) = b_{min} \in B$ 
+    where $a < b_{min}$.  It follows that there 
+    is some open set $U_a = [a, b_{min})$ containing $a$ that contains no points 
+    in $B$, and the union of open sets 
+
+    \begin{alignat*}{1}
+        \bigcup_{a \in A} U_a \supset A
+    \end{alignat*}
+    is open and contains no points in $B$.  Repeating this approach for open sets 
+    $V_b = [b, a_{min})$ containing points $b$ in $B$, we have the union of opens sets
+    \begin{alignat*}{1}
+        \bigcup_{b \in B} V_b \supset B
+    \end{alignat*}
+
+    which is open, and the unions are disjoint:
+
+    \begin{alignat*}{1}
+        \biggl(\bigcup_{a \in A} U_a \biggr) \bigcap \biggl(\bigcup_{b \in B} V_b \biggr) = \emptyset.
+    \end{alignat*}
+\end{proof}
+
+
+
+
+
+\end{document}
